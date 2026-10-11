@@ -1,0 +1,22 @@
+
+syntax = "proto3";
+
+package telemetry;
+
+service TelemetryService {
+  rpc GetDrones (Empty) returns (DroneList);
+}
+
+message Empty {}
+
+message Drone {
+  int32 id = 1;
+  string name = 2;
+  int32 battery = 3;
+  string status = 4;
+  int32 altitude = 5;
+}
+
+message DroneList {
+  repeated Drone drones = 1;
+}
